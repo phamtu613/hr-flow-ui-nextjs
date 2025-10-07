@@ -1,102 +1,420 @@
-import Image from "next/image";
+import Logo from "@/components/logo";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { ROUTES } from "@/constants";
+import {
+  BarChart3,
+  Calendar,
+  Clock,
+  Shield,
+  TrendingUp,
+  Users,
+} from "lucide-react";
+import Link from "next/link";
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="min-h-screen bg-background">
+      <header className="border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex h-16 items-center justify-between">
+            <Logo />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+            <div className="flex items-center gap-3">
+              <Button variant="primary" asChild>
+                <Link href={ROUTES.LOGIN}>Login</Link>
+              </Button>
+              <Button asChild>
+                <Link href={ROUTES.SIGN_UP}>Signup</Link>
+              </Button>
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      </header>
+
+      {/* Hero Section */}
+      <section className="relative overflow-hidden py-20 sm:py-32">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-8">
+              <div className="inline-flex items-center gap-2 rounded-full bg-secondary px-4 py-2 text-sm font-medium text-secondary-foreground">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                </span>
+                New: AI-Powered Performance Reviews
+              </div>
+
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-balance">
+                Modern HR Management{" "}
+                <span className="text-primary">Made Simple</span>
+              </h1>
+
+              <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed text-pretty">
+                Streamline your entire HR workflow from recruitment to
+                retirement. Manage employees, track performance, and boost
+                productivity with our all-in-one platform.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button
+                  size="lg"
+                  asChild
+                  className="bg-[#978bf8] hover:bg-[#978bf8]/90 text-white text-base"
+                >
+                  <Link href="/sign-up">Get Started Free</Link>
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  asChild
+                  className="text-base bg-transparent"
+                >
+                  <Link href="/">Watch Demo</Link>
+                </Button>
+              </div>
+
+              <div className="flex items-center gap-8 pt-4">
+                <div>
+                  <div className="text-3xl font-bold text-foreground">10K+</div>
+                  <div className="text-sm text-muted-foreground">Companies</div>
+                </div>
+                <div className="h-12 w-px bg-border" />
+                <div>
+                  <div className="text-3xl font-bold text-foreground">
+                    500K+
+                  </div>
+                  <div className="text-sm text-muted-foreground">Employees</div>
+                </div>
+                <div className="h-12 w-px bg-border" />
+                <div>
+                  <div className="text-3xl font-bold text-foreground">
+                    99.9%
+                  </div>
+                  <div className="text-sm text-muted-foreground">Uptime</div>
+                </div>
+              </div>
+            </div>
+
+            <div className="relative">
+              <div className="relative rounded-2xl bg-gradient-to-br from-primary/20 via-primary/10 to-transparent p-8 backdrop-blur">
+                <Card className="p-6 space-y-6 shadow-xl">
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-lg font-semibold">Employee Overview</h3>
+                    <TrendingUp className="h-5 w-5 text-primary" />
+                  </div>
+
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between p-4 rounded-lg bg-secondary">
+                      <div className="flex items-center gap-3">
+                        <div className="h-10 w-10 rounded-full bg-primary/20 flex items-center justify-center">
+                          <Users className="h-5 w-5 text-primary" />
+                        </div>
+                        <div>
+                          <div className="font-medium">Total Employees</div>
+                          <div className="text-sm text-muted-foreground">
+                            Active workforce
+                          </div>
+                        </div>
+                      </div>
+                      <div className="text-2xl font-bold">1,247</div>
+                    </div>
+
+                    <div className="flex items-center justify-between p-4 rounded-lg bg-secondary">
+                      <div className="flex items-center gap-3">
+                        <div className="h-10 w-10 rounded-full bg-primary/20 flex items-center justify-center">
+                          <Calendar className="h-5 w-5 text-primary" />
+                        </div>
+                        <div>
+                          <div className="font-medium">On Leave Today</div>
+                          <div className="text-sm text-muted-foreground">
+                            Approved absences
+                          </div>
+                        </div>
+                      </div>
+                      <div className="text-2xl font-bold">23</div>
+                    </div>
+
+                    <div className="flex items-center justify-between p-4 rounded-lg bg-secondary">
+                      <div className="flex items-center gap-3">
+                        <div className="h-10 w-10 rounded-full bg-primary/20 flex items-center justify-center">
+                          <Clock className="h-5 w-5 text-primary" />
+                        </div>
+                        <div>
+                          <div className="font-medium">Pending Reviews</div>
+                          <div className="text-sm text-muted-foreground">
+                            Performance evaluations
+                          </div>
+                        </div>
+                      </div>
+                      <div className="text-2xl font-bold">47</div>
+                    </div>
+                  </div>
+
+                  <div className="pt-4 border-t border-border">
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-muted-foreground">
+                        Productivity Score
+                      </span>
+                      <span className="font-semibold text-primary">
+                        +12% this month
+                      </span>
+                    </div>
+                  </div>
+                </Card>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section id="features" className="py-20 bg-secondary/30">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center space-y-4 mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-balance">
+              Everything You Need to Manage Your Team
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
+              Powerful features designed to simplify HR operations and empower
+              your workforce
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <Card className="p-6 space-y-4 hover:shadow-lg transition-shadow">
+              <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center">
+                <Users className="h-6 w-6 text-primary" />
+              </div>
+              <h3 className="text-xl font-semibold">Employee Management</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                Centralize employee data, track records, and manage
+                organizational structure with ease.
+              </p>
+            </Card>
+
+            <Card className="p-6 space-y-4 hover:shadow-lg transition-shadow">
+              <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center">
+                <Calendar className="h-6 w-6 text-primary" />
+              </div>
+              <h3 className="text-xl font-semibold">Leave Management</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                Automate leave requests, approvals, and balance tracking for
+                seamless time-off management.
+              </p>
+            </Card>
+
+            <Card className="p-6 space-y-4 hover:shadow-lg transition-shadow">
+              <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center">
+                <BarChart3 className="h-6 w-6 text-primary" />
+              </div>
+              <h3 className="text-xl font-semibold">Performance Tracking</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                Set goals, conduct reviews, and monitor employee performance
+                with data-driven insights.
+              </p>
+            </Card>
+
+            <Card className="p-6 space-y-4 hover:shadow-lg transition-shadow">
+              <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center">
+                <TrendingUp className="h-6 w-6 text-primary" />
+              </div>
+              <h3 className="text-xl font-semibold">Recruitment Pipeline</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                Streamline hiring from job posting to onboarding with applicant
+                tracking tools.
+              </p>
+            </Card>
+
+            <Card className="p-6 space-y-4 hover:shadow-lg transition-shadow">
+              <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center">
+                <Shield className="h-6 w-6 text-primary" />
+              </div>
+              <h3 className="text-xl font-semibold">Compliance & Security</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                Stay compliant with labor laws and protect sensitive data with
+                enterprise-grade security.
+              </p>
+            </Card>
+
+            <Card className="p-6 space-y-4 hover:shadow-lg transition-shadow">
+              <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center">
+                <Clock className="h-6 w-6 text-primary" />
+              </div>
+              <h3 className="text-xl font-semibold">Time & Attendance</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                Track work hours, manage shifts, and automate payroll
+                calculations effortlessly.
+              </p>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <Card className="relative overflow-hidden bg-gradient-to-br from-primary/10 via-primary/5 to-transparent p-12 sm:p-16">
+            <div className="relative z-10 max-w-3xl mx-auto text-center space-y-6">
+              <h2 className="text-3xl sm:text-4xl font-bold text-balance">
+                Ready to Transform Your HR Operations?
+              </h2>
+              <p className="text-lg text-muted-foreground text-pretty">
+                Join thousands of companies already using HRFlow to build better
+                workplaces
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+                <Button
+                  size="lg"
+                  asChild
+                  className="bg-[#978bf8] hover:bg-[#978bf8]/90 text-white"
+                >
+                  <Link href="/signup">Start Free Trial</Link>
+                </Button>
+                <Button size="lg" variant="outline" asChild>
+                  <Link href="#contact">Contact Sales</Link>
+                </Button>
+              </div>
+            </div>
+          </Card>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t border-border py-12 bg-secondary/20">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-4 gap-8">
+            <div className="space-y-4">
+              <div className="flex items-center gap-2">
+                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary">
+                  <Users className="h-5 w-5 text-primary-foreground" />
+                </div>
+                <span className="text-lg font-bold">HRFlow</span>
+              </div>
+              <p className="text-sm text-muted-foreground">
+                Modern HR management platform for growing businesses
+              </p>
+            </div>
+
+            <div>
+              <h4 className="font-semibold mb-4">Product</h4>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li>
+                  <Link
+                    href="#"
+                    className="hover:text-foreground transition-colors"
+                  >
+                    Features
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="#"
+                    className="hover:text-foreground transition-colors"
+                  >
+                    Pricing
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="#"
+                    className="hover:text-foreground transition-colors"
+                  >
+                    Security
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="#"
+                    className="hover:text-foreground transition-colors"
+                  >
+                    Roadmap
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="font-semibold mb-4">Company</h4>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li>
+                  <Link
+                    href="#"
+                    className="hover:text-foreground transition-colors"
+                  >
+                    About
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="#"
+                    className="hover:text-foreground transition-colors"
+                  >
+                    Blog
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="#"
+                    className="hover:text-foreground transition-colors"
+                  >
+                    Careers
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="#"
+                    className="hover:text-foreground transition-colors"
+                  >
+                    Contact
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="font-semibold mb-4">Legal</h4>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li>
+                  <Link
+                    href="#"
+                    className="hover:text-foreground transition-colors"
+                  >
+                    Privacy
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="#"
+                    className="hover:text-foreground transition-colors"
+                  >
+                    Terms
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="#"
+                    className="hover:text-foreground transition-colors"
+                  >
+                    Cookie Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="#"
+                    className="hover:text-foreground transition-colors"
+                  >
+                    Licenses
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="mt-12 pt-8 border-t border-border text-center text-sm text-muted-foreground">
+            <p>&copy; 2025 HRFlow. All rights reserved.</p>
+          </div>
+        </div>
       </footer>
     </div>
   );
