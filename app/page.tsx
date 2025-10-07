@@ -269,10 +269,10 @@ export default function HomePage() {
                   asChild
                   className="bg-[#978bf8] hover:bg-[#978bf8]/90 text-white"
                 >
-                  <Link href="/signup">Start Free Trial</Link>
+                  <Link href={ROUTES.SIGN_UP}>Start Free Trial</Link>
                 </Button>
                 <Button size="lg" variant="outline" asChild>
-                  <Link href="#contact">Contact Sales</Link>
+                  <Link href="/">Contact Sales</Link>
                 </Button>
               </div>
             </div>
